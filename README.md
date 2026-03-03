@@ -1,0 +1,2 @@
+# pyOpencodeIMRepeater
+一个Opencode的IM软件中继器，用于IM软件远程向opencode发出指令并获取反馈给用户，最终让用户达成通过IM操作openclaw一样方式来操作opencode
