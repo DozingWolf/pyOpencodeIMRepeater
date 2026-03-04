@@ -1,0 +1,5 @@
+2026-03-03 17:44:46,354 - test - INFO - <string>:1 - Test message
+2026-03-03 17:48:14,412 - src.main - INFO - main.py:27 - Starting IM Repeater v0.1.0
+2026-03-03 17:48:14,412 - src.main - INFO - main.py:28 - Debug mode: False
+2026-03-03 17:48:14,419 - src.main - INFO - main.py:32 - Database initialized
+2026-03-03 17:48:14,419 - src.main - INFO - main.py:36 - Feishu client initialized
