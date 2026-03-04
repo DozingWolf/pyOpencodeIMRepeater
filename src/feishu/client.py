@@ -27,12 +27,12 @@ class FeishuClient:
         self.verification_token = settings.feishu_verification_token
         self.encrypt_key = settings.feishu_encrypt_key
 
-    def verify_request(self, headers: dict[str, str], body: str) -> bool:
+    def verify_request(self, headers: dict[str, str], body: bytes | str) -> bool:
         """Verify webhook request signature.
 
         Args:
             headers: HTTP request headers.
-            body: Request body as JSON string.
+            body: Request body as bytes or JSON string.
 
         Returns:
             True if request is valid, False otherwise.
@@ -62,8 +62,10 @@ class FeishuClient:
             logger.warning(f"Invalid timestamp format: {timestamp}")
             return False
 
+        # Convert bytes to string if needed
         # Calculate signature: sha256(timestamp + nonce + encrypt_key + body)
-        sign_base = f"{timestamp}{nonce}{self.encrypt_key}{body}"
+        body_str = body.decode('utf-8') if isinstance(body, bytes) else body
+        sign_base = f"{timestamp}{nonce}{self.encrypt_key}{body_str}"
         calculated_signature = hashlib.sha256(sign_base.encode('utf-8')).hexdigest()
 
         # Compare signatures
