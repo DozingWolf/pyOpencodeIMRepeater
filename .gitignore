@@ -208,3 +208,4 @@ __marimo__/
 config/config.yaml
 data/sessions.db
 /.sisyphus
+nul
